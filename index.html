@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#020204" />
   <title>Basic Trades</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,22 +11,27 @@
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html, body {
+    html {
       height: 100%;
       overflow-x: hidden;
+      overflow-y: scroll;
       background: #020204;
     }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
       color: #f1f5f9;
+      min-height: 100%;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: safe center;
       position: relative;
-      padding: 24px 16px;
+      padding: 48px 16px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     /* Soft animated background */
