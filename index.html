@@ -64,7 +64,7 @@
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 560px;
+      max-width: 720px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -77,16 +77,18 @@
     }
 
     .logo-wrap {
-      width: 155px;
-      height: 155px;
-      margin-bottom: 26px;
-      border-radius: 30px;
+      width: 175px;
+      height: 175px;
+      margin-bottom: 28px;
+      border-radius: 32px;
       overflow: hidden;
       box-shadow: 
-        0 24px 60px rgba(0,0,0,0.55),
-        0 0 0 1px rgba(255,255,255,0.1),
-        0 0 40px rgba(59, 130, 246, 0.15);
+        0 28px 70px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(255,255,255,0.12),
+        0 0 50px rgba(59, 130, 246, 0.18);
       transition: transform 0.4s ease;
+      display: block;
+      text-decoration: none;
     }
     .logo-wrap:hover { transform: scale(1.06); }
     .logo-wrap img {
@@ -98,46 +100,46 @@
 
     h1 {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(3rem, 8vw, 4rem);
+      font-size: clamp(3.4rem, 9vw, 4.6rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.05;
-      background: linear-gradient(160deg, #ffffff 0%, #f8fafc 30%, #e2e8f0 60%, #94a3b8 100%);
+      background: linear-gradient(160deg, #ffffff 0%, #f8fafc 25%, #e2e8f0 55%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 10px;
-      filter: drop-shadow(0 0 30px rgba(255,255,255,0.15));
-      text-shadow: 0 0 40px rgba(255,255,255,0.08);
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 35px rgba(255,255,255,0.18));
     }
 
     .subtitle {
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: #64748b;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .taglines {
-      margin-bottom: 28px;
+      margin-bottom: 30px;
+      max-width: 520px;
     }
     .tagline {
-      font-size: 1.08rem;
+      font-size: 1.2rem;
       font-weight: 400;
       color: #e2e8f0;
-      line-height: 1.5;
-      margin-bottom: 6px;
+      line-height: 1.55;
+      margin-bottom: 8px;
     }
     .tagline-sub {
-      font-size: 0.9rem;
+      font-size: 1.02rem;
       font-weight: 300;
       color: #64748b;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
     .tagline-extra {
-      font-size: 0.88rem;
+      font-size: 0.98rem;
       font-weight: 300;
       color: #475569;
       font-style: italic;
@@ -154,12 +156,12 @@
     .feature {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.07);
       border-radius: 100px;
-      padding: 9px 16px;
-      font-size: 0.85rem;
+      padding: 11px 20px;
+      font-size: 0.95rem;
       font-weight: 500;
       color: #cbd5e1;
       transition: all 0.25s ease;
@@ -169,45 +171,45 @@
       border-color: rgba(255,255,255,0.12);
       color: #f1f5f9;
     }
-    .feature .icon { font-size: 0.95rem; }
+    .feature .icon { font-size: 1.05rem; }
 
     .cta-wrap {
       position: relative;
       width: 100%;
-      max-width: 270px;
+      max-width: 320px;
     }
     .cta-wrap::after {
       content: '';
       position: absolute;
-      inset: -4px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+      inset: -5px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #3b82f6, #60a5fa, #3b82f6);
       z-index: -1;
-      opacity: 0.35;
-      filter: blur(14px);
+      opacity: 0.4;
+      filter: blur(16px);
       animation: pulse 3s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 0.25; transform: scale(0.97); }
-      50%      { opacity: 0.5; transform: scale(1.02); }
+      0%, 100% { opacity: 0.3; transform: scale(0.97); }
+      50%      { opacity: 0.55; transform: scale(1.03); }
     }
 
     .cta {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       width: 100%;
-      padding: 15px 28px;
+      padding: 18px 36px;
       background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
       color: #fff;
-      font-size: 0.92rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-decoration: none;
-      border-radius: 14px;
+      border-radius: 16px;
       border: none;
-      box-shadow: 0 12px 30px -6px rgba(37, 99, 235, 0.5);
+      box-shadow: 0 14px 36px -6px rgba(37, 99, 235, 0.55);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
@@ -341,8 +343,10 @@
 
     /* Responsive */
     @media (max-width: 480px) {
-      .logo-wrap { width: 125px; height: 125px; border-radius: 26px; margin-bottom: 20px; }
-      h1 { font-size: 2.7rem; }
+      .logo-wrap { width: 140px; height: 140px; border-radius: 28px; margin-bottom: 22px; }
+      h1 { font-size: 3rem; }
+      .tagline { font-size: 1.1rem; }
+      .cta { font-size: 1rem; padding: 16px 28px; }
       .tagline { font-size: 1rem; }
       .features { gap: 7px; }
       .feature { font-size: 0.8rem; padding: 8px 13px; }
@@ -350,8 +354,8 @@
     }
 
     @media (max-height: 700px) {
-      .logo-wrap { width: 100px; height: 100px; margin-bottom: 14px; }
-      h1 { font-size: 2.5rem; margin-bottom: 6px; }
+      .logo-wrap { width: 120px; height: 120px; margin-bottom: 16px; }
+      h1 { font-size: 2.8rem; margin-bottom: 6px; }
       .subtitle { margin-bottom: 12px; }
       .taglines { margin-bottom: 16px; }
       .tagline { font-size: 0.95rem; }
@@ -366,9 +370,9 @@
   <div id="particles"></div>
 
   <div class="content">
-    <div class="logo-wrap">
+    <a href="https://t.me/+P0J7HB2fifU4NDM1" class="logo-wrap" target="_blank" rel="noopener noreferrer">
       <img src="https://lh3.googleusercontent.com/d/1IAkWNNdRnDLeB6jrXO-kpVuc7Y2UOgiI=w1000" alt="Basic Trades Logo" />
-    </div>
+    </a>
 
     <h1>Basic Trades</h1>
     <p class="subtitle">Trade • Learn • Grow</p>
