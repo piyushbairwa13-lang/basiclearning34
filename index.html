@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,38 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#020204" />
   <title>Basic Trades</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html, body {
-      height: 100%;
-      overflow: hidden;
+      min-height: 100%;
       background: #020204;
     }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
       color: #f1f5f9;
-      height: 100dvh;
+      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 24px 20px;
+      padding: 45px 20px 100px;
       text-align: center;
+      overflow-x: hidden;
     }
 
     .bg {
       position: fixed;
       inset: 0;
       z-index: 0;
-      background: 
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59, 130, 246, 0.16) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.16), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(212,175,55,0.08), transparent 50%),
         #020204;
     }
 
@@ -47,17 +56,25 @@
       pointer-events: none;
       overflow: hidden;
     }
+
     .particle {
       position: absolute;
       background: rgba(255,255,255,0.3);
       border-radius: 50%;
       animation: float linear infinite;
     }
+
     @keyframes float {
-      0%   { transform: translateY(100vh) scale(0.3); opacity: 0; }
-      15%  { opacity: 0.5; }
-      85%  { opacity: 0.3; }
-      100% { transform: translateY(-5vh) scale(1); opacity: 0; }
+      0% {
+        transform: translateY(100vh) scale(0.3);
+        opacity: 0;
+      }
+      15% { opacity: 0.5; }
+      85% { opacity: 0.3; }
+      100% {
+        transform: translateY(-5vh) scale(1);
+        opacity: 0;
+      }
     }
 
     .content {
@@ -68,12 +85,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .logo-wrap {
@@ -82,15 +105,19 @@
       margin-bottom: 28px;
       border-radius: 32px;
       overflow: hidden;
-      box-shadow: 
+      box-shadow:
         0 28px 70px rgba(0,0,0,0.55),
         0 0 0 1px rgba(255,255,255,0.12),
-        0 0 50px rgba(59, 130, 246, 0.18);
+        0 0 50px rgba(59,130,246,0.18);
       transition: transform 0.4s ease;
       display: block;
       text-decoration: none;
     }
-    .logo-wrap:hover { transform: scale(1.06); }
+
+    .logo-wrap:hover {
+      transform: scale(1.06);
+    }
+
     .logo-wrap img {
       width: 100%;
       height: 100%;
@@ -104,7 +131,7 @@
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.05;
-      background: linear-gradient(160deg, #ffffff 0%, #f8fafc 25%, #e2e8f0 55%, #94a3b8 100%);
+      background: linear-gradient(160deg, #fff 0%, #f8fafc 25%, #e2e8f0 55%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -125,6 +152,7 @@
       margin-bottom: 30px;
       max-width: 520px;
     }
+
     .tagline {
       font-size: 1.2rem;
       font-weight: 400;
@@ -132,12 +160,14 @@
       line-height: 1.55;
       margin-bottom: 8px;
     }
+
     .tagline-sub {
       font-size: 1.02rem;
       font-weight: 300;
       color: #64748b;
       margin-bottom: 6px;
     }
+
     .tagline-extra {
       font-size: 0.98rem;
       font-weight: 300;
@@ -153,6 +183,7 @@
       margin-bottom: 32px;
       width: 100%;
     }
+
     .feature {
       display: inline-flex;
       align-items: center;
@@ -166,18 +197,23 @@
       color: #cbd5e1;
       transition: all 0.25s ease;
     }
+
     .feature:hover {
       background: rgba(255,255,255,0.07);
       border-color: rgba(255,255,255,0.12);
       color: #f1f5f9;
     }
-    .feature .icon { font-size: 1.05rem; }
+
+    .feature .icon {
+      font-size: 1.05rem;
+    }
 
     .cta-wrap {
       position: relative;
       width: 100%;
       max-width: 320px;
     }
+
     .cta-wrap::after {
       content: '';
       position: absolute;
@@ -189,9 +225,16 @@
       filter: blur(16px);
       animation: pulse 3s ease-in-out infinite;
     }
+
     @keyframes pulse {
-      0%, 100% { opacity: 0.3; transform: scale(0.97); }
-      50%      { opacity: 0.55; transform: scale(1.03); }
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.97);
+      }
+      50% {
+        opacity: 0.55;
+        transform: scale(1.03);
+      }
     }
 
     .cta {
@@ -201,7 +244,7 @@
       gap: 12px;
       width: 100%;
       padding: 18px 36px;
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
       color: #fff;
       font-size: 1.05rem;
       font-weight: 600;
@@ -209,11 +252,12 @@
       text-decoration: none;
       border-radius: 16px;
       border: none;
-      box-shadow: 0 14px 36px -6px rgba(37, 99, 235, 0.55);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 14px 36px -6px rgba(37,99,235,0.55);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
       position: relative;
       overflow: hidden;
     }
+
     .cta::before {
       content: '';
       position: absolute;
@@ -222,35 +266,92 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
+
     .cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 18px 40px -8px rgba(37, 99, 235, 0.6);
+      box-shadow: 0 18px 40px -8px rgba(37,99,235,0.6);
     }
-    .cta:hover::before { opacity: 1; }
-    .cta:active { transform: translateY(-1px); }
-    .cta svg { width: 18px; height: 18px; }
 
-    /* Footer links */
+    .cta:hover::before {
+      opacity: 1;
+    }
+
+    .cta:active {
+      transform: translateY(-1px);
+    }
+
+    .cta svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Automatic Redirect Countdown */
+
+    .redirect-box {
+      margin-top: 22px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .redirect-text {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .timer-number {
+      color: #60a5fa;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .progress-track {
+      height: 5px;
+      width: 100%;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.09);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+      border-radius: 100px;
+      box-shadow: 0 0 14px rgba(59,130,246,0.65);
+      transition: width 0.15s linear;
+    }
+
+    .redirect-note {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+
     .footer {
-      position: absolute;
-      bottom: 14px;
-      left: 0;
-      right: 0;
+      position: relative;
+      margin-top: 40px;
       z-index: 10;
       text-align: center;
       padding: 0 16px;
     }
+
     .disclaimer {
       font-size: 0.65rem;
       color: #475569;
       line-height: 1.4;
       margin-bottom: 8px;
     }
+
     .footer-links {
       display: flex;
       justify-content: center;
       gap: 18px;
     }
+
     .footer-links a {
       font-size: 0.72rem;
       color: #64748b;
@@ -259,11 +360,13 @@
       transition: color 0.2s;
       cursor: pointer;
     }
+
     .footer-links a:hover {
       color: #94a3b8;
     }
 
-    /* Modal / Popup */
+    /* Modal */
+
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -278,12 +381,14 @@
       visibility: hidden;
       transition: all 0.3s ease;
     }
+
     .modal-overlay.active {
       opacity: 1;
       visibility: visible;
     }
+
     .modal {
-      background: rgba(18, 18, 28, 0.95);
+      background: rgba(18,18,28,0.95);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 20px;
       width: 100%;
@@ -293,12 +398,14 @@
       padding: 28px 24px 24px;
       position: relative;
       transform: translateY(20px) scale(0.97);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
       box-shadow: 0 25px 60px rgba(0,0,0,0.5);
     }
+
     .modal-overlay.active .modal {
       transform: translateY(0) scale(1);
     }
+
     .modal-close {
       position: absolute;
       top: 14px;
@@ -316,10 +423,12 @@
       justify-content: center;
       transition: all 0.2s;
     }
+
     .modal-close:hover {
       background: rgba(255,255,255,0.12);
       color: #f1f5f9;
     }
+
     .modal h2 {
       font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 1.6rem;
@@ -328,60 +437,108 @@
       margin-bottom: 16px;
       padding-right: 30px;
     }
+
     .modal-body {
       font-size: 0.88rem;
       color: #94a3b8;
       line-height: 1.65;
       text-align: left;
     }
-    .modal-body p { margin-bottom: 12px; }
+
+    .modal-body p {
+      margin-bottom: 12px;
+    }
+
     .modal-body a {
       color: #60a5fa;
       text-decoration: none;
     }
-    .modal-body a:hover { text-decoration: underline; }
 
-    /* Responsive */
+    .modal-body a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 480px) {
-      .logo-wrap { width: 140px; height: 140px; border-radius: 28px; margin-bottom: 22px; }
+      .logo-wrap {
+        width: 140px;
+        height: 140px;
+        border-radius: 28px;
+        margin-bottom: 22px;
+      }
+
       h1 { font-size: 3rem; }
-      .tagline { font-size: 1.1rem; }
-      .cta { font-size: 1rem; padding: 16px 28px; }
       .tagline { font-size: 1rem; }
+      .cta { font-size: 1rem; padding: 16px 28px; }
       .features { gap: 7px; }
       .feature { font-size: 0.8rem; padding: 8px 13px; }
       .cta-wrap { max-width: 100%; }
     }
 
     @media (max-height: 700px) {
-      .logo-wrap { width: 120px; height: 120px; margin-bottom: 16px; }
-      h1 { font-size: 2.8rem; margin-bottom: 6px; }
+      .logo-wrap {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 6px;
+      }
+
       .subtitle { margin-bottom: 12px; }
       .taglines { margin-bottom: 16px; }
       .tagline { font-size: 0.95rem; }
       .features { margin-bottom: 20px; }
-      .footer { bottom: 8px; }
-      .disclaimer { font-size: 0.6rem; margin-bottom: 5px; }
+      .disclaimer { font-size: 0.6rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .particle, .content, .cta-wrap::after {
+        animation: none;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <div class="bg"></div>
   <div id="particles"></div>
 
-  <div class="content">
-    <a href="https://t.me/+P0J7HB2fifU4NDM1" class="logo-wrap" target="_blank" rel="noopener noreferrer">
-      <img src="https://lh3.googleusercontent.com/d/1IAkWNNdRnDLeB6jrXO-kpVuc7Y2UOgiI=w1000" alt="Basic Trades Logo" />
+  <main class="content">
+
+    <a
+      href="https://t.me/+P0J7HB2fifU4NDM1"
+      class="logo-wrap"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://lh3.googleusercontent.com/d/1IAkWNNdRnDLeB6jrXO-kpVuc7Y2UOgiI=w1000"
+        alt="Basic Trades Logo"
+      />
     </a>
 
     <h1>Basic Trades</h1>
     <p class="subtitle">Trade • Learn • Grow</p>
 
     <div class="taglines">
-      <p class="tagline">Simple, clean market setups for everyday trading.</p>
-      <p class="tagline-sub">One focused trade a day. No noise. No spam.</p>
-      <p class="tagline-sub">Clarity over chaos. Precision over hype.</p>
-      <p class="tagline-extra">Built for traders who value discipline.</p>
+      <p class="tagline">
+        Simple, clean market setups for everyday trading.
+      </p>
+
+      <p class="tagline-sub">
+        One focused trade a day. No noise. No spam.
+      </p>
+
+      <p class="tagline-sub">
+        Clarity over chaos. Precision over hype.
+      </p>
+
+      <p class="tagline-extra">
+        Built for traders who value discipline.
+      </p>
     </div>
 
     <div class="features">
@@ -389,10 +546,12 @@
         <span class="icon">⚡</span>
         <span>1 Quality Trade / Day</span>
       </div>
+
       <div class="feature">
         <span class="icon">📊</span>
         <span>Clear Charts</span>
       </div>
+
       <div class="feature">
         <span class="icon">✕</span>
         <span>No Spam • No Hype</span>
@@ -400,143 +559,251 @@
     </div>
 
     <div class="cta-wrap">
-      <a href="https://t.me/+P0J7HB2fifU4NDM1" class="cta" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor">
+      <a
+        href="https://t.me/+P0J7HB2fifU4NDM1"
+        class="cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.36-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
         </svg>
         JOIN CHANNEL
       </a>
-    </div>
-  </div>
 
-  <div class="footer">
-    <p class="disclaimer">
-      Trading involves substantial risk of loss. Past performance does not guarantee future results. Educational purposes only.
-    </p>
-    <div class="footer-links">
-      <a onclick="openModal('privacy')">Privacy Policy</a>
-      <a onclick="openModal('contact')">Contact Us</a>
+      <!-- 5 SECOND REDIRECT TIMER -->
+      <div class="redirect-box" role="status" aria-live="polite">
+        <p class="redirect-text">
+          Redirecting to Telegram in
+          <span class="timer-number" id="countdown">5</span>
+          seconds...
+        </p>
+
+        <div class="progress-track">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <p class="redirect-note">
+          You will be redirected automatically.
+        </p>
+      </div>
+
     </div>
-  </div>
+  </main>
+
+  <footer class="footer">
+    <p class="disclaimer">
+      Trading involves substantial risk of loss.
+      Past performance does not guarantee future results.
+      Educational purposes only.
+    </p>
+
+    <div class="footer-links">
+      <a href="#privacy" onclick="openModal(event, 'privacy')">
+        Privacy Policy
+      </a>
+      <a href="#contact" onclick="openModal(event, 'contact')">
+        Contact Us
+      </a>
+    </div>
+  </footer>
 
   <!-- Privacy Policy Modal -->
-  <div class="modal-overlay" id="privacyModal" onclick="closeModal(event, 'privacy')">
-    <div class="modal" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal(null, 'privacy')">✕</button>
-      <h2>Privacy Policy</h2>
+  <div
+    class="modal-overlay"
+    id="privacyModal"
+    onclick="closeModal(event, 'privacy')"
+  >
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" onclick="event.stopPropagation()">
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close privacy policy"
+        onclick="closeModal(null, 'privacy')"
+      >✕</button>
+
+      <h2 id="privacyTitle">Privacy Policy</h2>
+
       <div class="modal-body">
-        <p>At <strong>Basic Trades</strong>, we respect your privacy. This channel and website are for educational purposes only.</p>
-        <p>We do not collect personal data beyond what is necessary for Telegram channel access. We do not sell, share, or distribute any user information to third parties.</p>
-        <p>Any charts, setups, or analysis shared are for learning purposes and should not be considered financial advice.</p>
-        <p>By joining our channel, you acknowledge that trading involves risk and that you are solely responsible for your own decisions.</p>
-        <p style="margin-top:16px; font-size:0.8rem; color:#64748b;">Last updated: October 2026</p>
+        <p>
+          At <strong>Basic Trades</strong>, we respect your privacy.
+          This channel and website are for educational purposes only.
+        </p>
+
+        <p>
+          We do not collect personal data beyond what is necessary
+          for Telegram channel access. We do not sell, share,
+          or distribute any user information to third parties.
+        </p>
+
+        <p>
+          Any charts, setups, or analysis shared are for learning
+          purposes and should not be considered financial advice.
+        </p>
+
+        <p>
+          By joining our channel, you acknowledge that trading
+          involves risk and that you are solely responsible for
+          your own decisions.
+        </p>
+
+        <p style="margin-top:16px; font-size:0.8rem; color:#64748b;">
+          Last updated: October 2026
+        </p>
       </div>
     </div>
   </div>
 
   <!-- Contact Us Modal -->
-  <div class="modal-overlay" id="contactModal" onclick="closeModal(event, 'contact')">
-    <div class="modal" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal(null, 'contact')">✕</button>
-      <h2>Contact Us</h2>
+  <div
+    class="modal-overlay"
+    id="contactModal"
+    onclick="closeModal(event, 'contact')"
+  >
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" onclick="event.stopPropagation()">
+      <button
+        class="modal-close"
+        type="button"
+        aria-label="Close contact information"
+        onclick="closeModal(null, 'contact')"
+      >✕</button>
+
+      <h2 id="contactTitle">Contact Us</h2>
+
       <div class="modal-body">
-        <p>Have a question or feedback? We'd love to hear from you.</p>
-        <p><strong>Telegram Channel:</strong><br>
-          <a href="https://t.me/+P0J7HB2fifU4NDM1" target="_blank" rel="noopener">Join Basic Trades</a>
+        <p>
+          Have a question or feedback? We'd love to hear from you.
         </p>
-        <p>For support or inquiries, feel free to reach out through the Telegram channel.</p>
-        <p style="margin-top:12px;">We typically respond within 24–48 hours.</p>
+
+        <p>
+          <strong>Telegram Channel:</strong>
+          <a
+            href="https://t.me/+P0J7HB2fifU4NDM1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join Basic Trades
+          </a>
+        </p>
+
+        <p>
+          For support or inquiries, feel free to reach out
+          through the Telegram channel.
+        </p>
+
+        <p style="margin-top:12px;">
+          We typically respond within 24–48 hours.
+        </p>
       </div>
     </div>
   </div>
 
   <script>
-    // Particles
-    const container = document.getElementById('particles');
+    // Floating particles
+    const particleContainer = document.getElementById('particles');
+
     for (let i = 0; i < 24; i++) {
       const p = document.createElement('div');
       p.className = 'particle';
       p.style.left = Math.random() * 100 + '%';
       p.style.animationDuration = (8 + Math.random() * 14) + 's';
-      p.style.animationDelay = (Math.random() * 10) + 's';
-      p.style.width = p.style.height = (1.2 + Math.random() * 2.2) + 'px';
+      p.style.animationDelay = Math.random() * 10 + 's';
+      p.style.width = p.style.height =
+        (1.2 + Math.random() * 2.2) + 'px';
       p.style.opacity = 0.2 + Math.random() * 0.4;
-      container.appendChild(p);
+      particleContainer.appendChild(p);
     }
 
     // Modal functions
-    function openModal(type) {
+    function openModal(event, type) {
+      if (event) event.preventDefault();
+
       const modal = document.getElementById(type + 'Modal');
-      if (modal) modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
     }
 
     function closeModal(event, type) {
-      if (event && event.target !== event.currentTarget && event !== null) return;
+      if (event && event.target !== event.currentTarget) return;
+
       const modal = document.getElementById(type + 'Modal');
-      if (modal) modal.classList.remove('active');
+
+      if (modal) {
+        modal.classList.remove('active');
+      }
+
       document.body.style.overflow = '';
     }
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+        document.querySelectorAll('.modal-overlay.active')
+          .forEach(m => m.classList.remove('active'));
+
         document.body.style.overflow = '';
       }
     });
+
+    // 5 SECOND AUTOMATIC REDIRECT
+    const REDIRECT_URL = "https://t.me/+P0J7HB2fifU4NDM1";
+    const REDIRECT_SECONDS = 5;
+    const startTime = performance.now();
+
+    const countdownElement = document.getElementById('countdown');
+    const progressElement = document.getElementById('progressBar');
+
+    let redirectStarted = false;
+
+    function updateRedirectTimer() {
+      if (redirectStarted) return;
+
+      const elapsed = (performance.now() - startTime) / 1000;
+      const remaining = Math.max(0, REDIRECT_SECONDS - elapsed);
+
+      countdownElement.textContent = Math.ceil(remaining);
+
+      const percentage = (remaining / REDIRECT_SECONDS) * 100;
+      progressElement.style.width = percentage + '%';
+
+      if (remaining <= 0) {
+        redirectStarted = true;
+        window.location.replace(REDIRECT_URL);
+      } else {
+        requestAnimationFrame(updateRedirectTimer);
+      }
+    }
+
+    requestAnimationFrame(updateRedirectTimer);
   </script>
 
-<!-- 5 Second Auto Redirect -->
-<script>
-  let secondsLeft = 5;
-
-  const redirectUrl = "https://t.me/+P0J7HB2fifU4NDM1";
-
-  const timerText = document.createElement("p");
-  timerText.id = "redirectTimer";
-  timerText.style.cssText = `
-    margin-top: 18px;
-    color: #94a3b8;
-    font-family: Inter, sans-serif;
-    font-size: 14px;
-    text-align: center;
-  `;
-
-  timerText.innerHTML =
-    `Redirecting to Telegram in <b style="color:#60a5fa">5</b> seconds...`;
-
-  document.querySelector(".cta-wrap").appendChild(timerText);
-
-  const countdown = setInterval(() => {
-    secondsLeft--;
-
-    timerText.innerHTML =
-      `Redirecting to Telegram in <b style="color:#60a5fa">${secondsLeft}</b> seconds...`;
-
-    if (secondsLeft <= 0) {
-      clearInterval(countdown);
-      window.location.replace(redirectUrl);
-    }
-  }, 1000);
-</script>
-
   <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1102416245749576');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1102416245749576&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;
+    n.version='2.0';n.queue=[];t=b.createElement(e);
+    t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1102416245749576');
+    fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=1102416245749576&amp;ev=PageView&amp;noscript=1"
+      alt=""
+    />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
 </body>
 </html>
