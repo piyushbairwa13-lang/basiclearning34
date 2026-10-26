@@ -748,8 +748,8 @@
     });
 
     // 5 SECOND AUTOMATIC REDIRECT
-    const REDIRECT_URL = "https://t.me/+P0J7HB2fifU4NDM1";
-    const REDIRECT_SECONDS = 5;
+    //const REDIRECT_URL = "https://t.me/+P0J7HB2fifU4NDM1";
+    //const REDIRECT_SECONDS = 5;
     const startTime = performance.now();
 
     const countdownElement = document.getElementById('countdown');
@@ -757,7 +757,7 @@
 
     let redirectStarted = false;
 
-    function updateRedirectTimer() {
+    //function updateRedirectTimer() {
       if (redirectStarted) return;
 
       const elapsed = (performance.now() - startTime) / 1000;
@@ -770,13 +770,13 @@
 
       if (remaining <= 0) {
         redirectStarted = true;
-        window.location.replace(REDIRECT_URL);
-      } else {
-        requestAnimationFrame(updateRedirectTimer);
+      //  window.location.replace(REDIRECT_URL);
+      //} else {
+        //requestAnimationFrame(updateRedirectTimer);
       }
     }
 
-    requestAnimationFrame(updateRedirectTimer);
+    //requestAnimationFrame(updateRedirectTimer);
   </script>
 
   <!-- Meta Pixel Code -->
