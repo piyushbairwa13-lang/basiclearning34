@@ -487,6 +487,40 @@
     });
   </script>
 
+<!-- 5 Second Auto Redirect -->
+<script>
+  let secondsLeft = 5;
+
+  const redirectUrl = "https://t.me/+P0J7HB2fifU4NDM1";
+
+  const timerText = document.createElement("p");
+  timerText.id = "redirectTimer";
+  timerText.style.cssText = `
+    margin-top: 18px;
+    color: #94a3b8;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    text-align: center;
+  `;
+
+  timerText.innerHTML =
+    `Redirecting to Telegram in <b style="color:#60a5fa">5</b> seconds...`;
+
+  document.querySelector(".cta-wrap").appendChild(timerText);
+
+  const countdown = setInterval(() => {
+    secondsLeft--;
+
+    timerText.innerHTML =
+      `Redirecting to Telegram in <b style="color:#60a5fa">${secondsLeft}</b> seconds...`;
+
+    if (secondsLeft <= 0) {
+      clearInterval(countdown);
+      window.location.replace(redirectUrl);
+    }
+  }, 1000);
+</script>
+
   <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
